@@ -1,0 +1,281 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - MEDIREV Comming Soon Page</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets2/img/favicon.png'%}" rel="icon">
+  <link href="{% static 'assets2/img/apple-touch-icon.png'%}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets2/vendor/aos/aos.css'%}" rel="stylesheet">
+  <link href="{% static 'assets2/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets2/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+
+
+
+  <!-- Main CSS File -->
+  <link href="  {% static 'assets2/css/main.css'%}" rel="stylesheet">
+
+</head>
+<style>
+  body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+  background: url("{% static 'assets2/img/bg.jpg' %}") top center no-repeat;
+  background-size: cover;
+  position: relative;
+}
+</style>
+
+<body class="index-page">
+
+  <header id="header" class="header px-3 d-flex align-items-center fixed-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src=" {% static 'assets2/img/logo.png'%}"  alt="MEDIREV">
+        <!-- <h1 class="sitename">MEDIREV</h1> -->
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Request Demo</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section transparent-background">
+
+      <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h2>Welcome to Our Website</h2>
+            <p>We are still working on our website. Stay tuned for updates!</p>
+          </div>
+          <div class="countdown" data-count="2024/12/3">
+            <span class="count-days"></span> days <span class="count-hours"></span>:<span class="count-minutes"></span>:<span class="count-seconds"></span>
+          </div>
+
+          <div class="col-lg-5 hero-newsletter">
+            <p>Subscribe now to get the latest updates!</p>
+            <form action="{% url 'news_let' %}" method="post" class="php-email-form">
+              {% csrf_token %}
+              <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+              <div class="loading">Loading</div>
+              {% if errors %}
+              {% for err in errors %}
+              <div class="alert alert-icon alert-danger text-danger alert-dismissible fade show" role="alert">
+                  <strong><i class="bi bi-exclamation-triangle"></i>
+                    <div class="error-message"> Failed to send email</div></strong>
+              </div>
+              {% endfor %}
+              {% endif %}
+
+              {% if success %}
+              {% for err in errors %}
+              <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+              {% endfor %}
+              {% endif %}
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section transparent-background">
+
+      <div class="container">
+
+        <div class="row gy-4 justify-content-center" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
+            <div class="content">
+              <h3>Voluptatem dignissimos provident quasi</h3>
+              <p>
+                Medirevs is a digital healthcare startup dedicated to transforming patient care in Ghana through innovative technology. Currently in development, our platform will offer secure and affordable digital medical records, a telemedicine app, and AI-powered diagnostics to enhance clinical decision-making. By bridging the gap between patients and healthcare providers, we aim to make healthcare more accessible, efficient, and impactful across Ghana and beyond. Stay tuned as we work to bring our vision to life!
+              </p>
+              <ul>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Record system embbeded with AI technologies</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Patient Mobile app that makes communication easier.</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span>AI-Doctor to assist Diagnosis .</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section transparent-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Let's Get In Touch</h2>
+        <p>Request a demo of our innovative products that we believe have the potential to transform the healthcare system profoundly</p>
+      </div><!-- End Section Title -->
+
+      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-5">
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-geo-alt flex-shrink-0"></i>
+              <div>
+                <h3>Address</h3>
+                <p>Street Name Street, Accra, Ghana</p>
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-telephone flex-shrink-0"></i>
+              <div>
+                <h3>Call Us</h3>
+                <p>+ Tell</p>
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-envelope flex-shrink-0"></i>
+              <div>
+                <h3>Email Us</h3>
+                <p>info@medirevs.com</p>
+              </div>
+            </div><!-- End Info Item -->
+
+          </div>
+
+          <div class="col-lg-7">
+            <form action="{% url 'home' %}" method="post" role="form" class="php-email-form">
+              {% csrf_token %}
+              <div class="row">
+                <div class="section-head">
+                  <!-- <h2> Let's Get In Touch </h2> -->
+                  <div class="line"></div>
+              </div>
+              {% if errors %}
+              {% for err in errors %}
+              <div class="alert alert-icon alert-danger text-danger alert-dismissible fade show" role="alert">
+                  <strong><i class="bi bi-exclamation-triangle"></i>
+                  {{err}}</strong>
+              </div>
+              {% endfor %}
+              {% endif %}
+
+              {% if success %}
+              {% for err in success %}
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong><i class="bi bi-check-circle"></i>
+                 {{err}}</strong>
+            </div>
+              {% endfor %}
+              {% endif %}
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer transparent-background">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">MEDIREVS</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="#"><i class="bi bi-twitter-x"></i></a>
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/medirevs/about/?viewAsMember=true"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="credits">
+
+        Designed by <a href="#">MEDIREVS</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets2/vendor/aos/aos.js'%}"></script>
+  <script src="{% static 'assets2/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <!-- Main JS File -->
+
+  <script src=" {% static 'assets2/js/main.js'%}"></script>
+
+  {% if errors or success %}
+ <script>
+  $(document).ready(function(){
+      // Scroll to the element with id="contact" on page load
+      $('html, body').animate({
+          scrollTop: $('#contact').offset().top
+      }, 'slow');
+  });
+  </script>
+  {% endif %}
+
+</body>
+
+</html>
